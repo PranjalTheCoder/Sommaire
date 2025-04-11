@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin 'tailwindcss-animate';
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
@@ -114,9 +115,21 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
   }
-  body {
-    @apply bg-background text-foreground;
+  h1 {
+    @apply text-4xl md:text-6xl xl:text-7xl font-bold;
+  }
+  h2 {
+    @apply text-xl lg: text-3xl font-medium;
+  }
+  h3 {
+    @apply text-2xl lg:text-4xl font-medium;
+  }
+  a {
+    @apply hover:cursor-pointer;
+  }
+  button {
+    @apply hover: cursor-pointer bg-rose-600 hover: bg-rose-700;
   }
 }
