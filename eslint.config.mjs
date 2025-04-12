@@ -13,7 +13,6 @@ const eslintConfig = {
   ...compat.config({
     extends: [
       "next/core-web-vitals",
-      "next/typescript",
       "prettier",
       "plugin:tailwindcss/recommended",
     ],

@@ -131,18 +131,18 @@
   a {
     @apply hover:cursor-pointer;
   }
-  button {
+  Button {
     @apply hover:cursor-pointer bg-rose-600 hover:bg-rose-700;
-  }
+  }  
 }
 
 @utility container {
   margin-inline: auto;
   padding-inline: 2rem;
-  @media (width >= --theme(--breakpoint-sm)){
+  @media (width >= --theme(--breakpoint-sm)) {
     max-width: none;
   }
-  @media (width >= 1400px){
+  @media (width >= 1400px) {
     max-width: 1400px;
   }
 }
