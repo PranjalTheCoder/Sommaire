@@ -3,8 +3,12 @@ import { z } from "zod";
 import UploadFormInput from "./upload-form-input";
 import { useUploadThing } from "@/utils/uploadthing";
 import { toast } from "sonner";
-import { generatePdfSummary } from "@/actions/upload-actions";
+import {
+  generatePdfSummary,
+  storePdfSUmmaryAction,
+} from "@/actions/upload-actions";
 import { useRef, useState } from "react";
+import { title } from "process";
 
 const schema = z.object({
   file: z
@@ -90,14 +94,25 @@ export default function UploadForm() {
       const { data = null, message = null } = result || {};
 
       if (data) {
+        let storeResult: any;
         toast("📑 Saving PDF", {
           description: "Hang tight! We are Saving your Summary! 💫",
         });
-
-        if(data.summary){
-        //save the summary to the database
+        
+        if (data.summary) {
+          //save the summary to the database
+          storeResult = await storePdfSUmmaryAction({
+            summary: data.summary,
+            fileUrl: resp[0].serverData.file.url,
+            title: data.title,
+            fileName: file.name,
+          });
+          toast("🤩 Summary Generated", {
+            description:
+              "Your PDF has been Successfully summarized and saved! 💫",
+          });
+          formRef.current?.reset();
         }
-        formRef.current?.reset();
       }
       //Step 4----
       //summarize3 the pdf using AI
