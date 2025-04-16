@@ -5,7 +5,7 @@ import { useUploadThing } from "@/utils/uploadthing";
 import { toast } from "sonner";
 import {
   generatePdfSummary,
-  storePdfSUmmaryAction,
+  storePdfSummaryAction,
 } from "@/actions/upload-actions";
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -102,7 +102,7 @@ export default function UploadForm() {
         
         if (data.summary) {
           //save the summary to the database
-          storeResult = await storePdfSUmmaryAction({
+          storeResult = await storePdfSummaryAction({
             summary: data.summary,
             fileUrl: resp[0].serverData.file.url,
             title: data.title,

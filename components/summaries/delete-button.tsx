@@ -27,9 +27,11 @@ export default function DeleteButton({ summaryId }: DeleteButtonProps) {
       //Delete Summary
       //await deleteSummary(summary.id)
       const result = await deleteSummaryAction({ summaryId });
-      if (!result?.success) {
+      if (result?.success) {
+        toast.success("Summary deleted successfully");
+      } else {
         toast.error("Error", {
-          description: "ailed to delete summary",
+          description: "Failed to delete summary",
         });
       }
       setOpen(false);
@@ -69,7 +71,7 @@ export default function DeleteButton({ summaryId }: DeleteButtonProps) {
             className="bg-gray-900 hover:bg-gray-600"
             onClick={handleDelete}
           >
-            {isPending ? 'Deleting...' : 'Delete'}
+            {isPending ? "Deleting..." : "Delete"}
           </Button>
         </DialogFooter>
       </DialogContent>

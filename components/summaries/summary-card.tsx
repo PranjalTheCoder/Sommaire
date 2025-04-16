@@ -2,8 +2,9 @@ import Link from "next/link";
 import { Card } from "../ui/card";
 import DeleteButton from "./delete-button";
 import { FileText } from "lucide-react";
-import { cn, formatFilenName } from "@/lib/utils";
+import { cn, formatFileName } from "@/lib/utils";
 import { formatDistanceToNow } from "date-fns";
+import TimeAgo from "../common/TimeAgo";
 
 const SummaryHeader = ({
   fileUrl,
@@ -16,22 +17,17 @@ const SummaryHeader = ({
 }) => {
   return (
     <div className="flex items-start gap-2 sm:gap-4">
-      <FileText className="w-6 h-6 sm:w-8 sm:h-8 text-rose-400 mt-1">
-        <div className="flex-1 min-w-0">
-          <h3
-            className="text-base xl:text-lg font-semibold
+      <FileText className="w-6 h-6 sm:w-8 sm:h-8 text-rose-400 mt-1" />
+      <div className="flex-1 min-w-0">
+        <h3
+          className="text-base xl:text-lg font-semibold
                 text-gray-900 truncate w-4/5"
-          >
-            {title || formatFilenName(fileUrl)}
-          </h3>
-
-          <p className="text-sm text-gray-500">
-            {formatDistanceToNow(new Date(createdAt), {
-              addSuffix: true,
-            })}
-          </p>
-        </div>
-      </FileText>
+        >
+          {title || formatFileName(fileUrl) || "Untitled Document"}
+        </h3>
+        <TimeAgo date={createdAt} />
+        {/* <p className="text-sm text-gray-500">2025</p> */}
+      </div>
     </div>
   );
 };

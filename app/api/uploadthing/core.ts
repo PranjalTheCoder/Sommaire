@@ -19,8 +19,8 @@ export const ourFileRouter = {
       console.log("Upload Completed for user id", metadata.userId);
       // console.log("File URL", file.url);
       //save the file url to the database
-      console.log("File URL", file.url);
-      return { userId: metadata.userId, file};
+      // console.log("File URL", file.url);
+      return { userId: metadata.userId, file };
       // return { fileUrl: file.url };
     }),
 } satisfies FileRouter;

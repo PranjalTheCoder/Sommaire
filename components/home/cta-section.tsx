@@ -21,12 +21,12 @@ export default function CTASection() {
               Ready to Save Hours of Reading Time?
             </h2>
             <p
-              className="mx-auto max-w-[700px] text-gray-500 md:text-xl/relaxed
-            lg:text-base/relaxed xl:text-xl/relaxed 
+              className="mx-auto max-w-[700px] text-gray-500 md:text-xl md:leading-relaxed
+            lg:text-base lg:leading-relaxed xl:text-xl xl:leading-relaxed 
             dark:text-gray-400"
             >
-              Transform lengthy documents into clear, actionable insights starts
-              with our AI-powered summarizer.
+              Transforming lengthy documents into clear, actionable insights
+              starts with our AI-powered summarizer.
             </p>
           </div>
           <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center">
@@ -34,7 +34,7 @@ export default function CTASection() {
               <Button
                 size="lg"
                 variant={"link"}
-                className="w-full min-[400px]:w-auto bg-linear-to-r 
+                className="w-full min-[400px]:w-auto bg-gradient-to-r 
               from-slate-900 to-rose-500 hover:from-rose-500 
               hover:to-slate-900 hover:text-white text-white
               transition-all duration-300"

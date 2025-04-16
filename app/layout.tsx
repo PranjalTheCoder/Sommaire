@@ -13,7 +13,7 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "pdf summarizer",
+  title: "PDF Summarizer",
   description:
     "Save Hours of reading time. Transform Lengthy PDFs into clear, accurate summaries in seconds with our advanced AI technology.",
 };
@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning>
         <body className={`${fontSans.variable} font-sans antialiased`}>
           <div className="relative flex min-h-screen flex-col">
             <Header />

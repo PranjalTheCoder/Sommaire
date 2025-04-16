@@ -78,7 +78,7 @@ export async function generatePdfSummary(
     if (!summary) {
       return {
         success: false,
-        message: "File to generate SUmmary",
+        message: "File to generate summary",
         data: null,
       };
     }
@@ -89,7 +89,7 @@ export async function generatePdfSummary(
       success: true,
       message: "Summary generated successfully",
       data: {
-        title: fileName,
+        title: formattedFileName,
         summary,
       },
     };
@@ -133,7 +133,7 @@ async function savePdfSummary({
   }
 }
 
-export async function storePdfSUmmaryAction({
+export async function storePdfSummaryAction({
   fileUrl,
   summary,
   title,

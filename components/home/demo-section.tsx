@@ -29,7 +29,7 @@ export default function DemoSection() {
         >
           <div
             className="inline-flex items-center justify-center
-          p-2 rounded-2xl bg-gray-100/80 backdrop-blur-xs border
+          p-2 rounded-2xl bg-gray-100/80 backdrop-blur-sm border
           border-gray-500/20 mb-4"
           >
             <Pizza className="w-6 h-6 text-rose-500" />

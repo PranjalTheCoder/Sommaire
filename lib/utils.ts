@@ -5,7 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function formatFilenName(url: string): string {
+export function formatFileName(url: string): string {
   const fileName = url.split("/").pop() || "";
   return fileName
     .replace(/\.[^/.]+$/, "")
