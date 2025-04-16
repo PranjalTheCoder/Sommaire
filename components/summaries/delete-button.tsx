@@ -24,8 +24,6 @@ export default function DeleteButton({ summaryId }: DeleteButtonProps) {
 
   const handleDelete = async () => {
     startTransition(async () => {
-      //Delete Summary
-      //await deleteSummary(summary.id)
       const result = await deleteSummaryAction({ summaryId });
       if (result?.success) {
         toast.success("Summary deleted successfully");
