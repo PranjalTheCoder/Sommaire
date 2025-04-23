@@ -5,7 +5,6 @@ import { SummaryViewer } from "@/components/summaries/summary-viewer";
 import { getSummaryById } from "@/lib/summaries";
 import { FileText } from "lucide-react";
 import { notFound } from "next/navigation";
-import { title } from "process";
 
 export default async function SummaryPage(props: {
   params: Promise<{ id: string }>;
@@ -17,7 +16,14 @@ export default async function SummaryPage(props: {
   if (!summary) {
     notFound();
   }
-  const { title, summary_text, file_name, word_count, created_at } = summary;
+  const {
+    title,
+    summary_text,
+    file_name,
+    word_count,
+    created_at,
+    original_file_url,
+  } = summary;
   const readingTime = Math.ceil((word_count || 0) / 200);
   return (
     <div
@@ -34,7 +40,15 @@ export default async function SummaryPage(props: {
               readingTime={readingTime.toString()}
             />
           </div>
-          {file_name && <SourceInfo fileName={file_name} />}
+          {file_name && (
+            <SourceInfo
+              title={title}
+              summaryText={summary_text}
+              fileName={file_name}
+              createdAt={created_at}
+              originalFileUrl={original_file_url}
+            />
+          )}
           <div className="relative mt-4 sm:mt-8 lg:mt-16">
             <div
               className="relative p-4 sm:p-6 lg:p-8 bg-white/80 backdrop-blur-md
