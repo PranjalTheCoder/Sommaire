@@ -23,11 +23,17 @@ const plans = [
       "Email support",
     ],
     id: "basic",
-    paymentLink: "",
-    priceId: "",
+    paymentLink:
+      process.env.NODE_ENV === "development"
+        ? "https://github.com/PranjalTheCoder/Sommaire"
+        : "",
+    priceId:
+      process.env.NODE_ENV === "development"
+        ? "price_1N4k2eL5g8z9aB1c2d3e4f5g"
+        : "",
   },
   {
-    name: "Pro",
+    name: "Premium",
     price: 19,
     description: "For professionals and teams",
     items: [
@@ -37,8 +43,14 @@ const plans = [
       "Markdown Export",
     ],
     id: "pro",
-    paymentLink: "",
-    priceId: "",
+    paymentLink:
+      process.env.NODE_ENV === "development"
+        ? "https://github.com/PranjalTheCoder/Sommaire"
+        : "",
+    priceId:
+      process.env.NODE_ENV === "development"
+        ? "price_1N4k2eL5g8z9aB1c2d3e4f5g"
+        : "",
   },
 ];
 
