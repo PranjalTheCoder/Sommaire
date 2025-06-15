@@ -1,4 +1,7 @@
-import { handleCheckoutSessionCompleted } from "@/lib/payments";
+import {
+  handleCheckoutSessionCompleted,
+  handleSubscriptionDeleted,
+} from "@/lib/payments";
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 
@@ -25,6 +28,10 @@ export const POST = async (req: NextRequest) => {
       case "customer.subscription.deleted":
         const subscription = event.data.object;
         // Handle subscription deletion
+        const subscriptionId = event.data.object.id;
+
+        await handleSubscriptionDeleted({ subscriptionId, stripe });
+
         console.log(`Subscription deleted: ${subscription.id}`);
         break;
       default:

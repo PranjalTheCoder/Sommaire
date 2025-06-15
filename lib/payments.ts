@@ -2,6 +2,29 @@ import Stripe from "stripe";
 import { getDbConnection } from "./db";
 import { create } from "domain";
 
+export async function handleSubscriptionDeleted({
+  subscriptionId,
+  stripe,
+}: {
+  subscriptionId: string;
+  stripe: Stripe;
+}) {
+  console.log("Subscription deleted:", subscriptionId);
+
+  try {
+    const subscription = await stripe.subscriptions.retrieve(subscriptionId);
+    const sql = await getDbConnection();
+
+    await sql`UPDATE users
+        SET status= 'inactive'
+        WHERE customer_id = ${subscription.customer}`;
+    console.log("Subscription cancelled successfully");
+  } catch (error) {
+    console.error("Error handling subscription deletion:", error);
+    throw error;
+  }
+}
+
 export async function handleCheckoutSessionCompleted({
   session,
   stripe,
