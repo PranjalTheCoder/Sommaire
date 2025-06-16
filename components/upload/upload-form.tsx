@@ -10,7 +10,6 @@ import {
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 
-
 const schema = z.object({
   file: z
     .instanceof(File, { message: "Invalid file" })
@@ -41,8 +40,8 @@ export default function UploadForm() {
         description: err.message,
       });
     },
-    onUploadBegin: ({ file }) => {
-      console.log("upload has begun for", file);
+    onUploadBegin: (data) => {
+      console.log("upload has begun for", data);
     },
   });
 
@@ -75,8 +74,8 @@ export default function UploadForm() {
 
       //Step 2----
       //upload the file to Uploadthing
-      const resp = await startUpload([file]);
-      if (!resp) {
+      const uploadResponse = await startUpload([file]);
+      if (!uploadResponse || uploadResponse.length === 0) {
         toast.error("❌ Something went wrong", {
           description: "Please use a different file",
         });
@@ -90,7 +89,11 @@ export default function UploadForm() {
 
       //Step 3----
       //parse the pdf using Lang Chain
-      const result = await generatePdfSummary(resp);
+      const uploadFileUrl = uploadResponse[0].serverData.fileUrl;
+      const result = await generatePdfSummary({
+        fileUrl: uploadFileUrl,
+        fileName: file.name,
+      });
 
       const { data = null, message = null } = result || {};
 
@@ -99,12 +102,12 @@ export default function UploadForm() {
         toast("📑 Saving PDF", {
           description: "Hang tight! We are Saving your Summary! 💫",
         });
-        
+
         if (data.summary) {
           //save the summary to the database
           storeResult = await storePdfSummaryAction({
             summary: data.summary,
-            fileUrl: resp[0].serverData.file.url,
+            fileUrl: uploadFileUrl,
             title: data.title,
             fileName: file.name,
           });
@@ -115,7 +118,6 @@ export default function UploadForm() {
           formRef.current?.reset();
           // Step 6: redirect summary to the user
           router.push(`/summaries/${storeResult.data.id}`);
-
         }
       }
       //Step 4----
@@ -128,12 +130,10 @@ export default function UploadForm() {
       //redirect to the [id] summary page
     } catch (error) {
       setIsLoading(false);
-      console.error("Error Occurred", error);
+      // console.error("Error Occurred", error);
       formRef.current?.reset();
-    }
-    finally {
+    } finally {
       setIsLoading(false);
-
     }
   };
 
