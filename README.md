@@ -6,9 +6,6 @@ Built with the latest web technologies and modern UI frameworks to provide a sea
 🔗 **Live Demo**: [https://sommaire-beta.vercel.app](https://sommaire-beta.vercel.app) <!-- 🔁 Replace this with your actual Vercel deploy link -->
 
 ---
-
-🌐 **Live Demo**  
-🔗 https://sommaire.vercel.app
     
 
 ## 🚀 Tech Stack
