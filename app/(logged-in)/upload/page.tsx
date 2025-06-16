@@ -4,20 +4,17 @@ import { UploadHeader } from "@/components/upload/upload-header";
 import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
-
-
 export default async function Page() {
   const user = await currentUser();
-  if(!user?.id){
+  if (!user?.id) {
     redirect("/sign-in");
   }
   const userId = user.id;
-  
-  const { hasReachedLimit } = await import ("@/lib/user");
-  if(!hasReachedLimit(userId)){
-    redirect("/dashboard");
-  } 
-  
+
+  // const { hasReachedLimit } = await import ("@/lib/user");
+  // if(!hasReachedLimit(userId)){
+  //   redirect("/dashboard");
+  // }
 
   return (
     <section className="min-h-screen">
