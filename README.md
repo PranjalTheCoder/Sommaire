@@ -14,7 +14,7 @@ Built with the latest web technologies and modern UI frameworks to provide a sea
 - ⚡️ Next.js 15 (App Router) — server-side rendering, Server Components, routing
 - ⚛️ React — building interactive UIs
 - 🔐 Clerk — auth via Passkeys, GitHub, Google
-- 🧠 OpenAI GPT-4 — contextual summarization with emoji-enhanced output
+- 🧠 Gemini — contextual summarization with emoji-enhanced output
 - 🦜 Langchain — PDF parsing, chunking, retrieval
 - 🧱 ShadCN UI — beautiful, accessible UI components
 - 🧵 TailwindCSS 4 — utility-first styling
