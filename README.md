@@ -6,10 +6,11 @@ Built with the latest web technologies and modern UI frameworks to provide a sea
 <p align="left">
   <img src="https://img.shields.io/github/contributors/PranjalTheCoder/Sommaire?style=for-the-badge&color=4c1" alt="Contributors">
     <img src="https://img.shields.io/github/stars/PranjalTheCoder/Sommaire?style=for-the-badge&color=007EC6" alt="Stars">
-    <img src="https://img.shields.io/github/issues/PranjalTheCoder/Sommaire?style=for-the-badge&color=FFC43D" alt="Open Issues">
+<!--     <img src="https://img.shields.io/github/issues/PranjalTheCoder/Sommaire?style=for-the-badge&color=FFC43D" alt="Open Issues">
     <img src="https://img.shields.io/github/issues-pr/PranjalTheCoder/Sommaire?style=for-the-badge&color=E84A5F" alt="Open Pull Requests">
-    <img src="https://img.shields.io/github/license/PranjalTheCoder/Sommaire?style=for-the-badge&color=F37626" alt="License">
-    <img src="https://komarev.com/ghpvc/?PranjalTheCoder=Sommaire&style=for-the-badge&color=28B880" alt="Repo Views">
+    <img src="https://img.shields.io/github/license/PranjalTheCoder/Sommaire?style=for-the-badge&color=F37626" alt="License"> -->
+    
+![Repo Views](https://komarev.com/ghpvc/?PranjalTheCoder=PythonKit&style=flat-square&color=brightgreen)
 </p>
 
 🔗 **Live Demo**: [https://sommaire-beta.vercel.app](https://sommaire-beta.vercel.app) <!-- 🔁 Replace this with your actual Vercel deploy link -->
