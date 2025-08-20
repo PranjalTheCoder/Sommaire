@@ -7,7 +7,7 @@ Built with the latest web technologies and modern UI frameworks to provide a sea
   <img src="https://img.shields.io/github/contributors/PranjalTheCoder/Sommaire?style=for-the-badge&color=4c1" alt="Contributors">
   <img src="https://img.shields.io/github/stars/PranjalTheCoder/Sommaire?style=for-the-badge&color=007EC6" alt="Stars">
   <img src="https://img.shields.io/github/forks/PranjalTheCoder/Sommaire?style=for-the-badge&color=8A2BE2" alt="Forks">
-  <img src="https://komarev.com/ghpvc/?PranjalTheCoder=Sommaire&style=for-the-badge&color=brightgreen" alt="Repo Views">
+<!--   <img src="https://komarev.com/ghpvc/?PranjalTheCoder=Sommaire&style=for-the-badge&color=brightgreen" alt="Repo Views"> -->
   
 </p>
 
