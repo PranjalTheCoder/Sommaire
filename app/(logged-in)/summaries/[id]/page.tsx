@@ -3,15 +3,21 @@ import { SourceInfo } from "@/components/summaries/source-info";
 import { SummaryHeader } from "@/components/summaries/summary-header";
 import { SummaryViewer } from "@/components/summaries/summary-viewer";
 import { getSummaryById } from "@/lib/summaries";
+import { currentUser } from "@clerk/nextjs/server";
 import { FileText } from "lucide-react";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
 export default async function SummaryPage(props: {
   params: Promise<{ id: string }>;
 }) {
+  const user = await currentUser();
+  if (!user?.id) {
+    redirect("/sign-in");
+  }
+
   const params = await props.params;
   const id = params.id;
-  const summary = await getSummaryById(id);
+  const summary = await getSummaryById(id, user.id);
 
   if (!summary) {
     notFound();
