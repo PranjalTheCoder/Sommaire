@@ -40,7 +40,7 @@ export default function CTASection() {
               transition-all duration-300"
               >
                 <Link
-                  href="/#pricing"
+                  href="/upload"
                   className="flex items-center justify-center"
                 >
                   Get Started{" "}

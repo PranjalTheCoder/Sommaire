@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { getSummaries } from "@/lib/summaries";
 import { currentUser } from "@clerk/nextjs/server";
 import { Description } from "@radix-ui/react-dialog";
-import { ArrowRight, Plus } from "lucide-react";
+import { Plus } from "lucide-react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
@@ -17,7 +17,6 @@ export default async function DashboardPage() {
     return redirect("/sign-in");
   }
 
-  const uploadLimit = 5;
   // const summaries = [
   //   {
   //     id: 1,
@@ -66,26 +65,6 @@ export default async function DashboardPage() {
                 New Summary
               </Link>
             </Button>
-          </div>
-          <div className="mb-6">
-            <div
-              className="bg-rose-50 border border-rose-200
-            rounded-lg p-4 text-rose-800"
-            >
-              <p className="text-sm">
-                You've reached the limit of {uploadLimit} uploads on the Basic
-                plan.{" "}
-                <Link
-                  href="/#pricing"
-                  className="text-rose-800 underline font-medium
-                        underline-offset-4 inline-flex items-center"
-                >
-                  Click here to upgrade to Pro{" "}
-                  <ArrowRight className="w-4 h-4 inline-block" />
-                </Link>{" "}
-                for unlimited uploads.
-              </p>
-            </div>
           </div>
           {summaries.length === 0 ? (
             <EmptySummaryState />

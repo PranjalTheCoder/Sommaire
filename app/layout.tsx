@@ -17,9 +17,6 @@ export const metadata: Metadata = {
   title: "PDF Summarizer",
   description:
     "Save Hours of reading time. Transform Lengthy PDFs into clear, accurate summaries in seconds with our advanced AI technology.",
-  icons: {
-    icon: "/icon.ico",
-  },
   openGraph: {
     images: [
       {
