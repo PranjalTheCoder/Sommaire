@@ -9,13 +9,6 @@ export default async function Page() {
   if (!user?.id) {
     redirect("/sign-in");
   }
-  const userId = user.id;
-
-  // const { hasReachedLimit } = await import ("@/lib/user");
-  // if(!hasReachedLimit(userId)){
-  //   redirect("/dashboard");
-  // }
-
   return (
     <section className="min-h-screen">
       <BgGradient />

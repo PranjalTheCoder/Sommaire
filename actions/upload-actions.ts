@@ -64,20 +64,14 @@ export async function generatePdfSummary({
       summary = await generateSummaryFromGemini(pdfText);
       console.log({ summary });
     } catch (error) {
-      console.log(error);
-      //call gemini-AI
-      if (error instanceof Error && error.message === "RATE_LIMIT_EXCEEDED") {
-        try {
-          summary = await generateSummaryFromOpenAI(pdfText);
-        } catch (geminiError) {
-          console.log(
-            "Gemini API failed after OPENAI quote exceeded",
-            geminiError
-          );
-          throw new Error(
-            "Failed to generate summary with available AI providers"
-          );
-        }
+      console.log("Gemini failed, falling back to OpenAI:", error);
+      try {
+        summary = await generateSummaryFromOpenAI(pdfText);
+      } catch (openaiError) {
+        console.log("OpenAI fallback also failed", openaiError);
+        throw new Error(
+          "Failed to generate summary with available AI providers"
+        );
       }
     }
     if (!summary) {

@@ -52,7 +52,7 @@ export default function HeroSection() {
                 hover:from-rose-500 hover:to-slate-900 hover:no-underline
                 font-bold shadow-lg transition-all duration-300"
         >
-          <Link href="/#pricing" className="flex gap-2 items-center">
+          <Link href="/upload" className="flex gap-2 items-center">
             <span>Try Sommaire</span>
             <ArrowRight className="animate-pulse" />
           </Link>
